@@ -1,0 +1,60 @@
+<div class="" style="width: 100%; background-color: #85929E;">
+    <br><br><br><br>
+    <div class="row">
+        <div class="col w-100 my-auto">
+            <h1 class="text-center p-3 fst-italic" style="font-size: 60px; font-weight: bold;">Reporte <br> de <br> mantenimientos </h1>
+        </div>
+        <div class="col" *ngIf="!update">
+            <app-agregar [Nuevo]="newchofer" [tipo]="false"></app-agregar>
+        </div>
+        <div class="col" *ngIf="update">
+            <app-agregar [Nuevo]="newchofer" [tipo]="true"></app-agregar>
+        </div>
+    </div>
+    <h3 class="text-center">REGISTROS</h3>
+    <table class="table table table-hover table-striped">
+        <thead>
+            <tr>
+                <th class="text-light" style="background-color: #2B4162;">Codigo</th>
+                <th class="text-light" style="background-color: #2B4162;">Fecha</th>
+                <th class="text-light" style="background-color: #2B4162;">Kilometraje</th>
+                <th class="text-light" style="background-color: #2B4162;">Costo</th>
+                <th class="text-light" style="background-color: #2B4162;">Tipo</th>
+                <th class="text-light" style="background-color: #2B4162;">Vehiculo</th>
+                <th class="text-light" style="background-color: #2B4162;">Actualizar</th>
+                <th class="text-light" style="background-color: #2B4162;">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let chofer of ListaMantenimiento">
+                <td>{{ chofer.codigo }}</td>
+                <td>{{ chofer.fecha | date:'dd-MM-yyyy' }}</td>
+                <td>{{ chofer.kilometraje }}</td>
+                <td>{{ chofer.costo }}</td>
+                <td>{{ chofer.tipo }}</td>
+                <td>{{ chofer.vehiculo }}</td>
+                <td>
+                    <button type="button" class="btn mx-1 text-light bg-success" (click)="editarChofer(chofer)" style="background-color: #2B4162;">Actualizar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn text-light bg-danger" (click)="eliminarChofer(chofer)" style="background-color: #541b2b;">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div #liveToast class="toast bg-dark text-light" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-dark text-light">
+            <img src="assets/img/chofer.png" class="rounded me-2" alt="..." width="20" height="20">
+            <strong class="me-auto">{{ title }}</strong>
+            <small>{{ tipoT }}</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ description }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start">
+        <div class="">
+            <div class="row gx-lg-5 align-items-center justify-content-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="bg-dark card-body py-5 px-md-5">
+                            <!-- <form action="sign_up.php" method="post"> -->
+                            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row">
+                                    <h2 class="fw-bold mb-4 text-uppercase fs-2 text-white text-center">Registrar usuario</h2>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input  name="nombre" type="text" id="form3Example1" class="form-control" formControlName="nombre" />
+                                            <label class="form-label text-white" for="form3Example1">First name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input name="apellido" type="text" id="form3Example2" class="form-control" formControlName="apellido"/>
+                                            <label class="form-label text-white" for="form3Example2">Last name</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input name="email" type="text" id="form3Example3" class="form-control" formControlName="correo"/>
+                                    <label class="form-label text-white" for="form3Example3">Email address</label>
+                                </div>
+
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input name="password" type="password" id="form3Example4" class="form-control" formControlName="contrasenia"/>
+                                    <label class="form-label text-white" for="form3Example4">Password</label>
+                                </div>
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Sign up
+                                </button>
+                                <button routerLink="/admin" class="btn btn-primary btn-block mb-4">
+                                    Cancel
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>

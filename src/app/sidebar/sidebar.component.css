@@ -1,0 +1,62 @@
+/* Estilo para fijar el menú en la parte superior */
+
+.navbar-nav {
+    margin-left: 50px;
+}
+
+.nav-item {
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* background-color: #2061a1; */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ajusta la altura del menú cuando se muestra el menú desplegable */
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 70px;
+        /* Ajusta la altura del menú */
+    }
+}
+
+
+/* Estilo del enlace activo en el menú */
+
+.nav-item.active .nav-link {
+    font-weight: bold;
+}
+
+
+/* Estilo para el menú cuando está desplegado en pantallas pequeñas */
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        flex-direction: column;
+        background-color: #f8f9fa;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding-top: 10px;
+    }
+    .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    .navbar-nav .nav-link:active {
+        transform: translateY(1px);
+        box-shadow: inset;
+    }
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}

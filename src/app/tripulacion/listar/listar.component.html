@@ -1,0 +1,60 @@
+<div class="" style="width: 100%; background-color: #85929E;">
+    <br><br><br><br><br>
+    <div class="row">
+        <div class="col w-100 my-auto">
+            <h1 class="text-center p-3 fst-italic" style="font-size: 60px; font-weight: bold;">Administración <br> de <br> Tripulaciones</h1>
+        </div>
+        <div class="col w-100" *ngIf="!update">
+            <app-agregar [nuevaTripulacion]="newTripulacion" [tipo]="false"></app-agregar>
+        </div>
+        <div class="col w-100" *ngIf="update">
+            <app-agregar [nuevaTripulacion]="newTripulacion" [tipo]="true"></app-agregar>
+        </div>
+    </div>
+    <h3 class="text-center">REGISTROS</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-light" style="background-color: #2B4162;">Código</th>
+                <th class="text-light" style="background-color: #2B4162;">Personas</th>
+                <th class="text-light" style="background-color: #2B4162;">Cedula Choferes</th>
+                <th class="text-light" style="background-color: #2B4162;">Nombres Choferes</th>
+                <th class="text-light" style="background-color: #2B4162;">Actualizar</th>
+                <th class="text-light" style="background-color: #2B4162;">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tripulacion of ListaTripulaciones; let i = index">
+                <td>{{ tripulacion.codigo }}</td>
+                <td>{{ tripulacion.personas }}</td>
+                <td>
+                    <span *ngFor="let chofer of tripulacion.choferes"> <b>{{ chofer.codigo }}</b>:  {{ chofer.cedula }} <br></span>
+                </td>
+                <td>
+                    <span *ngFor="let chofer of tripulacion.choferes"> <b>{{ chofer.codigo }}</b>: {{ chofer.nombres }} {{ chofer.apellidos }}<br></span>
+                </td>
+                <td>
+                    <button type="button" class="btn mx-1 text-light" (click)="editarTripulacion(tripulacion)" style="background-color: #2B4162;">Actualizar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn text-light" (click)="eliminarTripulacion(tripulacion)" style="background-color: #541b2b;">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div #liveToast class="toast bg-dark text-light" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-dark text-light">
+            <img src="assets/img/tripulacion.png" class="rounded me-2" alt="..." width="20" height="20">
+            <strong class="me-auto">{{ title }}</strong>
+            <small>{{ tipoT }}</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ description }}
+        </div>
+    </div>
+</div>
